@@ -11,14 +11,14 @@ service / on new http:Listener(9090) {
     resource function get data() returns json|error {
         // Send a response back to the caller.
 
-        contact:Client contactEndpoint = check new ({auth: {token: "CK6DoIaZMBIHQAEAQAAAARjb1rAMIJXr1BUojLo5MhSjVd0KeI0IXwMAWe-7rDju0Ps5wDowAAAARwAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAAAAA4AEAAAAgAAAAAAAAABACQhSRTTQzf2zqybqXhQNH5TqYaP2zo0oDZXUxUgBaAA"}});
+        contact:Client contactEndpoint = check new ({auth: {token: "CLyqnIeZMBIHQAEAQAAAARjb1rAMIJXr1BUojLo5MhQwFSPEoRX6-Tp6OVBH1PIWJBc6jjowAAAARwAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAAAAA4AEAAAAgAAAAAAAAABACQhR3C2vwKI3oI2-t8endz5In5h65AUoDZXUxUgBaAA"}});
         contact:SimplePublicObject createResponse = check contactEndpoint->create({
             properties: {
                 "city": "Cambridge",
                 "industry": "Sales",
-                "firstname": "Tabitha",
-                "email": "tabitha@test.com",
-                "lastname": "Makori",
+                "firstname": "Rafael",
+                "email": "raf@hubspot.com",
+                "lastname": "Dane",
                 "phone": "(877) 929-0687",
                 "state": "Massachusetts"
             }
