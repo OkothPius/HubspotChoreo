@@ -1,5 +1,4 @@
 
-import ballerinax/salesforce;
 import ballerinax/hubspot.crm.contact;
 import ballerina/http;
 
@@ -12,21 +11,19 @@ service / on new http:Listener(9090) {
     resource function get data() returns json|error {
         // Send a response back to the caller.
 
-        contact:Client contactEndpoint = check new ({auth: {token: "CLyqnIeZMBIHQAEAQAAAARjb1rAMIJXr1BUojLo5MhQwFSPEoRX6-Tp6OVBH1PIWJBc6jjowAAAARwAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAAAAA4AEAAAAgAAAAAAAAABACQhR3C2vwKI3oI2-t8endz5In5h65AUoDZXUxUgBaAA"}});
+        contact:Client contactEndpoint = check new ({auth: {token: "CPC6_piZMBIHQAEAQAAAARjb1rAMIJXr1BUojLo5MhTZCTJIg4OevHCM2o_G94yi-I9wzjowAAAARwAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAAAAA4AEAAAAgAAAAAAAAABACQhRiwZ68T9o6xVoXpMuhELniEFqUhUoDZXUxUgBaAA"}});
         contact:SimplePublicObject createResponse = check contactEndpoint->create({
             properties: {
-                "city": "Cambridge",
-                "industry": "Sales",
-                "firstname": "Rafael",
-                "email": "raf@hubspot.com",
-                "lastname": "Dane",
+                "city": "Sacramento",
+                "industry": "Tech",
+                "firstname": "John",
+                "lastname": "Doe",
+                "email": "jdoe@test.com",
                 "phone": "(877) 929-0687",
-                "state": "Massachusetts"
+                "state": "California"
             }
         });
-        salesforce:Client salesforceEndpoint = check new ({baseUrl: "https://contentlab2-dev-ed.my.salesforce.com", clientConfig: {refreshUrl: "https://login.salesforce.com/services/oauth2/token", refreshToken: "5Aep861g78ZB7.52Bc5slKRxVRgBc9o5goud6O2tbCdGuDdAoQPNzLSJPzzcz2ADrLtb5y9YdhdlSUlFUrNlxpa", clientId: "3MVG9DREgiBqN9WmUCPxLD0NLTyR42IazrIJpzeekfzkQZof_MpurIEwpvdUuZmni8b66z44Q9QAzW_zkWnKf", clientSecret: "46AC8D07313A5298C57D64E41CB0BA4D69A6D195FD051F7C67C4B327084D65FC"}});
-        salesforce:OrgMetadata getObjects = check salesforceEndpoint->describeAvailableObjects();
 
-        return getObjects;
+        return createResponse.toJson();
     }
 }
