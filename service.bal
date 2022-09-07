@@ -12,7 +12,8 @@ service / on new http:Listener(9090) {
         // Send a response back to the caller.
 
         contact:Client contactEndpoint = check new ({auth: {token: "CPC6_piZMBIHQAEAQAAAARjb1rAMIJXr1BUojLo5MhTZCTJIg4OevHCM2o_G94yi-I9wzjowAAAARwAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAAAAA4AEAAAAgAAAAAAAAABACQhRiwZ68T9o6xVoXpMuhELniEFqUhUoDZXUxUgBaAA"}});
-        contact:SimplePublicObject createResponse = check contactEndpoint->create({
+        contact:SimplePublicObject createResponse = check 
+        contactEndpoint->create({
             properties: {
                 "city": "Sacramento",
                 "industry": "Tech",
